@@ -1,1 +1,1 @@
-FROM ghcr.io/rsturla-homelab/bootc/qemu/centos-base:stream10@sha256:f216454323707217def73759aa92c88646747b328b96d06dee6eec1ae1605160
+FROM ghcr.io/rsturla-homelab/bootc/qemu/centos-base:stream10@sha256:c01fcba1f2ac5b1297e57ff88f136d116ea9014bfad129d33ec44d2e802f8bd8
