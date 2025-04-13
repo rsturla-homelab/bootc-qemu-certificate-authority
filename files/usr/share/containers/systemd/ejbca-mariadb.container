@@ -1,0 +1,21 @@
+[Unit]
+Description=Mariadb Database for EJBCA Certificate Authority
+After=network-online.target
+RequiredBy=ejbca.service
+
+[Container]
+Image=ejbca-mariadb.image
+ContainerName=ejbca-mariadb
+Network=ejbca-internal.network
+Environment=MYSQL_ROOT_PASSWORD=ejbca
+Environment=MYSQL_DATABASE=ejbca
+Environment=MYSQL_USER=ejbca
+Environment=MYSQL_PASSWORD=ejbca
+Volume=ejbca-mariadb.volume:/var/lib/mysql:Z
+GlobalArgs=--storage-opt=additionalimagestore=/usr/lib/bootc/storage
+
+[Service]
+TimeoutStartSec=900
+
+[Install]
+WantedBy=default.target

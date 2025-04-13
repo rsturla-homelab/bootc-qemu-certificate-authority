@@ -1,0 +1,20 @@
+[Unit]
+Description=EJBCA Certificate Authority
+After=network-online.target
+Requires=ejbca-mariadb.service caddy.service
+
+[Container]
+Image=ejbca.image
+ContainerName=ejbca
+Network=ejbca-internal.network
+PublishPort=80:8080
+PublishPort=443:8443
+Environment=DATABASE_JDBC_URL=jdbc:mariadb://ejbca-mariadb:3306/ejbca?characterEncoding=UTF-8
+Environment=TLS_SETUP_ENABLED=simple
+GlobalArgs=--storage-opt=additionalimagestore=/usr/lib/bootc/storage
+
+[Service]
+TimeoutStartSec=900
+
+[Install]
+WantedBy=default.target
