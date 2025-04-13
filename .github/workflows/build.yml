@@ -31,3 +31,4 @@ jobs:
     with:
       image-name: bootc/qemu/certificate-authority
       os-version: stream10
+      base-image-name: centos-base-qemu-stream10
